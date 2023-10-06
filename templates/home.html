@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="top-section">
+    <h1>davina rose allen</h1>
+    <button class="home-button" onclick="loadHomeContent()">HOME</button>
+</div>
+
+<!-- Columns Container -->
+<div class="columns">
+    <!-- Left Column -->
+    <div class="left-column">
+        <p>Currently under construction.</p>
+    </div>
+    <!-- Right Column -->
+    <div class="right-column">
+        <button class="button" onclick="loadContent('/details')">DETAILS</button>
+        <button class="button" onclick="loadContent('/education')">EDUCATION</button>
+        <button class="button" onclick="loadContent('/certification')">CERTIFICATION</button>
+    </div>
+    
+</div>
+
+<script>
+    function loadContent(url) {
+        fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.querySelector('.left-column').innerHTML = data;
+        })
+        .catch(error => {
+            console.log('There was a problem with the fetch operation:', error.message);
+        });
+    }    
+</script>
+
+<script>
+    function loadHomeContent() {
+        document.querySelector('.left-column').innerHTML = "Currently under construction.";
+    }    
+</script>
+{% endblock %}

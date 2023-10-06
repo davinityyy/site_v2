@@ -1,0 +1,276 @@
+/* ==========================
+   BASE STYLES
+========================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'rainyhearts';
+  src: url('/static/rainyhearts.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pixellari';
+  src: url('/static/Pixellari.ttf') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+
+body {
+  font-family: 'Pixellari', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: rgb(190,175,204);
+  background: linear-gradient(90deg, rgba(190,175,204,1) 0%, rgba(145,205,207,1) 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(0, 0, 255, 0.3);
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+h1, h2, h3 { 
+  font-family: 'rainyhearts', Calibri, sans-serif; 
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+p {
+  font-family: 'Pixellari', Calibri, sans-serif;
+}
+
+a {
+  text-decoration: none; /* Removes underline */
+  color: inherit;
+  transition: 0.2s ease-in-out;
+}
+
+.profile-image {
+  width: 200px;
+  border-radius: 2px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ==========================
+   PAGE STRUCTURE / MAIN LAYOUT
+========================== */
+
+.window {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  width: 1000px;
+  height: 650px;
+  background-color: #c7c2c2;
+  border: 3px solid rgb(58, 58, 58);
+  border-radius: 2px;
+  box-shadow: 
+      4px 4px 2px rgba(0, 0, 0, .2), /* Shadow around the paper */
+      inset -3px -3px 5px rgba(0, 0, 0, 0.15), /* Shadow in the lower right */
+      inset 3px 3px 2px rgba(255, 255, 255, 0.6); /* Highlight in the upper left */
+  transition: clip-path 0.3s ease-in-out;
+}
+
+/* Top section styles */
+.top-section {
+  display: flex;       
+  justify-content: start;  
+  align-items: center;  
+  gap: 20px;
+  width: 95%; /* Take full width of the parent (.window) */
+  height: 12%; /* As per your requirement */
+  margin: 5px;
+  padding: 5px;
+  /* border: 2.5px solid rgb(247, 10, 10); */
+}
+  
+.home-button {
+  width: 100px;
+  font-weight: 800;
+  font-size: 1rem;
+  font-family: 'rainyhearts', Calibri, sans-serif;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgba(82, 82, 82, 0.8), /* Right-Bottom shadow */
+  -1px -1px 2px rgba(82, 82, 82, 0.8), /* Left-Top shadow */
+  -1px 1px 2px rgba(82, 82, 82, 0.8), /* Left-Bottom shadow */
+  1px -1px 2px rgba(82, 82, 82, 0.8); /* Right-Top shadow */
+  background-color: #5baaa5;
+  border: 2.5px solid rgb(58, 58, 58);
+  border-radius: 3px;
+  box-shadow: 
+      1px 1px 2px rgba(0, 0, 0, .2), /* Shadow around the paper */
+      inset -3px -3px 5px rgba(0, 0, 0, 0.15), /* Shadow in the lower right */
+      inset 3px 3px 2px rgba(255, 255, 255, 0.6); /* Highlight in the upper left */
+  padding: 10px;
+  display: block;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: center;         /* Center the text if the button becomes block-level */
+  margin: 0 5px 5px 5px;
+}
+  
+.home-button:hover {
+  background-color: #55a826;
+}
+
+.home.button:active {
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Columns container styles */
+.columns {
+  display: flex;
+  margin: 10px 10px 50px 10px;
+  height: 85%; /* Remaining space after top-section */
+  width: 95%;
+  /* border: 2.5px solid rgb(247, 10, 10); */
+  justify-content: flex-end;
+}
+
+/* Left column styles */
+.left-column {
+  width: 625px;
+  margin: 5px;
+  overflow-y: scroll; /* Add a scrollbar if content overflows vertically */
+  padding: 15px;
+  background-color: #c7c2c2;
+  border: 2.5px solid rgb(58, 58, 58);
+  border-radius: 2px;
+  box-shadow: 
+      3px 3px 2px rgba(0, 0, 0, .2), /* Shadow around the paper */
+      inset -3px -3px 5px rgba(0, 0, 0, 0.15), /* Shadow in the lower right */
+      inset 3px 3px 2px rgba(255, 255, 255, 0.6); /* Highlight in the upper left */
+  display: flex;
+  flex-direction: column;  /* Ensures the inner columns stack vertically */
+  align-items: start;      /* Aligns content to the start */
+}
+
+.inner-columns {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;             /* Takes up the full width of the left-column */
+}
+
+.inner-left {
+  width: 325px;
+  padding: 0 20px;
+  margin-right: 8px;
+  background-color: #dfdada;
+  border: 2.5px solid rgb(58, 58, 58);
+  border-radius: 2px;
+  box-shadow: 
+      2px 2px 1px rgba(0, 0, 0, .15), /* Shadow around the paper */
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5), /* Shadow in the lower right */
+      inset 2px 2px 1px rgba(0, 0, 0, 0.2); /* Highlight in the upper left */
+}
+
+.inner-right {
+  width: 70%;
+  padding: 0 10px;
+  background-color: #e7e4e4;
+  border: 2.5px solid rgb(58, 58, 58);
+  border-radius: 2px;
+  box-shadow: 
+      2px 2px 1px rgba(0, 0, 0, .15), /* Shadow around the paper */
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5), /* Shadow in the lower right */
+      inset 2px 2px 1px rgba(0, 0, 0, 0.2); /* Highlight in the upper left */
+}
+
+/* Right column styles */
+.right-column {
+  width: 20%; /* Fixed width as per your requirement */
+  /* border: 2.5px solid rgb(10, 136, 16); */
+  margin: 5px;
+  padding: 15px;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #1EA9A0 #888888;
+  }
+  
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    height: 20px;
+    width: 20px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: #888888;
+    border: 2px inset #414141;
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #949494;
+  }
+  
+  *::-webkit-scrollbar-track:active {
+    background-color: #888888;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    background-color: #1EA9A0;
+    border: 2px outset #105B57;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #22BFB5;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #1EA9A0;
+  }  
+
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.button {
+  width: 150px;
+  font-weight: 800;
+  font-size: 1rem;
+  font-family: 'rainyhearts', Calibri, sans-serif;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgba(82, 82, 82, 0.8), /* Right-Bottom shadow */
+  -1px -1px 2px rgba(82, 82, 82, 0.8), /* Left-Top shadow */
+  -1px 1px 2px rgba(82, 82, 82, 0.8), /* Left-Bottom shadow */
+  1px -1px 2px rgba(82, 82, 82, 0.8); /* Right-Top shadow */
+  background-color: #5baaa5;
+  border: 2.5px solid rgb(58, 58, 58);
+  border-radius: 3px;
+  box-shadow: 
+      1px 1px 2px rgba(0, 0, 0, .2), /* Shadow around the paper */
+      inset -3px -3px 5px rgba(0, 0, 0, 0.15), /* Shadow in the lower right */
+      inset 3px 3px 2px rgba(255, 255, 255, 0.6); /* Highlight in the upper left */
+  padding: 10px;
+  display: block;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: center;         /* Center the text if the button becomes block-level */
+  margin: 0 5px 5px 5px;
+}
+
+.button:hover {
+  background-color: #55a826;
+}
+
+.button:active {
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.button:hover a {
+  color: #55a826;
+}

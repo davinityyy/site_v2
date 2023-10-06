@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>welcome!</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body class="{% if is_homepage %}home{% else %}{{ current_page }}{% endif %}">
+    
+        <div class="window{% if is_homepage %} home{% endif %}">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+
+</html>
