@@ -95,6 +95,15 @@ a {
   margin-bottom: 1.5em; /* Adjust this value to get the desired spacing */
 }
 
+hr {
+  position: relative;
+  top: 20px;
+  border: none;
+  height: 3px;
+  background: #99a09f;
+  margin-bottom: 50px;
+}
+
 /* ==========================
    PAGE STRUCTURE / MAIN LAYOUT
 ========================== */
@@ -149,25 +158,27 @@ a {
   border: 2.5px solid rgb(58, 58, 58);
   border-radius: 2px;
   box-shadow: 
-    1px 1px 2px rgba(0, 0, 0, .2), /* Shadow around the paper */
+    1px 1px 2px rgba(0, 0, 0, .2), /* Shadow around the button */
     inset -3px -3px 5px rgba(0, 0, 0, 0), /* Shadow in the lower right */
     inset 3px 3px 2px rgba(255, 255, 255, 0); /* Highlight in the upper left */
   display: flex;
   transition:
     background-color 0.2s ease-in-out,
-    color 0.2s ease-in-out,
+    color 0.05s ease-in-out,
     box-shadow 0.2s ease-in-out;
   justify-content: center; /* centers content horizontally */
   align-items: center;
 }
 
 .top-menu a:hover {
-  background-color: #9066a8; /* slightly darker color on hover */
+  background-color: #9066a8;
   font-size: 1.2rem;
 }
 
 .top-menu a:active {
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: rgba(145,205,207);
+  font-size: 1.15rem;
 }
 
 /* Columns container styles */
@@ -176,8 +187,8 @@ a {
   margin: 10px 10px 50px 10px;
   height: 85%; /* Remaining space after top-section */
   width: 95%;
-  /* border: 2.5px solid rgb(247, 10, 10); */
   justify-content: flex-end;
+  overflow: auto;
 }
 
 /* Left column styles */
@@ -231,7 +242,7 @@ a {
 
 /* Right column styles */
 .right-column {
-  width: 20%; /* Fixed width as per your requirement */
+  width: 20%;
   /* border: 2.5px solid rgb(10, 136, 16); */
   margin: 5px;
   padding: 15px;
@@ -256,12 +267,15 @@ a {
   border: 2.5px solid rgb(58, 58, 58);
   border-radius: 3px;
   box-shadow: 
-      1px 1px 2px rgba(0, 0, 0, .2), /* Shadow around the paper */
-      inset -3px -3px 5px rgba(0, 0, 0, 0.15), /* Shadow in the lower right */
-      inset 3px 3px 2px rgba(255, 255, 255, 0.6); /* Highlight in the upper left */
+      1px 1px 2px rgba(0, 0, 0, .2), /* Shadow around the button */
+      inset -3px -3px 5px rgba(0, 0, 0, 0.2), /* Shadow in the lower right */
+      inset 3px 3px 2px rgba(255, 255, 255, 0.5); /* Highlight in the upper left */
   padding: 10px;
   display: block;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   text-align: center;         /* Center the text if the button becomes block-level */
   margin: 0 5px 5px 5px;
 }
@@ -271,7 +285,7 @@ a {
 }
 
 .button:active {
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .button:hover a {
@@ -321,3 +335,42 @@ a {
 *::-webkit-scrollbar-thumb:active {
   background-color: #1EA9A0;
 }  
+
+
+/* ==========================
+   LANGUAGE STUFF
+========================== */
+
+.language-section {
+  width: 100%;
+  text-align: left;
+}
+
+.languages-list {
+  width: 100%;
+}
+
+.language-item {
+  margin: 15px 0 0 0;
+}
+
+.language-label {
+  margin-left: 5px;
+  margin-bottom: 3px;
+}
+
+.proficiency {
+  height: 15px;
+  width: 100%;
+  background-color: #b1b1b1;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+
+.proficiency-level {
+  height: 100%;
+  background-color: #30949b; /* color of the proficiency fill */
+  border-radius: 3px 0 0 3px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
