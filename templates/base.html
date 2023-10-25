@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>welcome!</title>
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script>
+            if (typeof jQuery != 'undefined') {
+                console.log('jQuery is loaded');
+            } else {
+                console.log('jQuery is not loaded');
+            }
+        </script>
+    
+        <script>
+            $(document).ready(function() {
+                console.log("jQuery is working!");
+            });
+        </script>
+        <title>welcome!</title>
     </head>
 
     <body class="{% if is_homepage %}home{% else %}{{ current_page }}{% endif %}">
-    
         <div class="window{% if is_homepage %} home{% endif %}">
             {% block content %}
             {% endblock %}
         </div>
     </body>
-
 </html>

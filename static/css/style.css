@@ -230,7 +230,7 @@ hr {
 
 .inner-right {
   width: 70%;
-  padding: 20px;
+  padding: 10px 20px;
   background-color: #e7e4e4;
   border: 2.5px solid rgb(58, 58, 58);
   border-radius: 2px;
@@ -240,10 +240,17 @@ hr {
       inset 2px 2px 1px rgba(0, 0, 0, 0.2); /* Highlight in the upper left */
 }
 
+.fun-mode .inner-left {
+  width: 125px; /* Example width, adjust as needed */
+}
+
+.fun-mode .inner-right {
+  width: 80%; /* Example width, adjust as needed */
+}
+
 /* Right column styles */
 .right-column {
   width: 20%;
-  /* border: 2.5px solid rgb(10, 136, 16); */
   margin: 5px;
   padding: 15px;
 }

@@ -1,0 +1,49 @@
+{% extends "fun.html" %}
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('calculator.static', filename='calculator_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <div class="calculator">
+        <h2 class="calculator-heading">count on me</h2>
+        <input class="result" type="text" id="result" readonly>
+        <div class="calculator-buttons">
+            <button class="calc-button" onclick="addToResult('7')">7</button>
+            <button class="calc-button" onclick="addToResult('8')">8</button>
+            <button class="calc-button" onclick="addToResult('9')">9</button>
+            <button class="calc-button" onclick="addToResult('/')">÷</button>
+            <button class="calc-button" onclick="addToResult('4')">4</button>
+            <button class="calc-button" onclick="addToResult('5')">5</button>
+            <button class="calc-button" onclick="addToResult('6')">6</button>
+            <button class="calc-button" onclick="addToResult('*')">x</button>
+            <button class="calc-button" onclick="addToResult('1')">1</button>
+            <button class="calc-button" onclick="addToResult('2')">2</button>
+            <button class="calc-button" onclick="addToResult('3')">3</button>
+            <button class="calc-button" onclick="addToResult('-')">-</button>
+            <button class="calc-button" onclick="addToResult('.')">.</button>
+            <button class="calc-button" onclick="addToResult('0')">0</button>
+            <button class="calc-button" onclick="addToResult('+')">+</button>
+            <button class="calc-button" onclick="calculateResult()">=</button>
+            <button class="calc-button" onclick="clearResult()">c</button>
+        </div>
+    </div>
+
+    <script>
+        function addToResult(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculateResult() {
+            try {
+                document.getElementById('result').value = eval(document.getElementById('result').value);
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+    </script>
+
+{% endblock %}

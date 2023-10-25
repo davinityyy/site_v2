@@ -1,11 +1,20 @@
-from flask import Flask, render_template, jsonify, request, session
+from flask import Flask, render_template, session, jsonify, request
+from apps.calculator.routes import calculator_bp
+from apps.memory_game.routes import memory_game_bp
 
 app = Flask(__name__)
-app.secret_key = 'sudos_mama'
+
+# Register blueprints
+app.register_blueprint(calculator_bp, url_prefix='/calculator')
+app.register_blueprint(memory_game_bp, url_prefix='/memory_game')
 
 @app.route('/')
 def home():
     return render_template('home.html', is_homepage=True)
+
+@app.route('/fun')
+def fun():
+    return render_template('fun.html')
 
 @app.route('/details')
 def details():

@@ -6,7 +6,7 @@
     <div class="top-menu">
         <a href="javascript:void(0)" onclick="loadHomeContent()">HOME</a>
         <a href="#section2">BUTTON</a>
-        <a href="#section3">BUTTON</a>
+        <a href="javascript:void(0)" onclick="loadContent('/fun')">FUN</a>
     </div>
 </div>
 
@@ -35,12 +35,23 @@
             return response.text();
         })
         .then(data => {
-            document.querySelector('.left-column').innerHTML = data;
+            const leftColumn = document.querySelector('.left-column');
+            leftColumn.innerHTML = data;
+    
+            if (url === '/fun') {
+                leftColumn.classList.add('fun-mode');
+            } else {
+                leftColumn.classList.remove('fun-mode');
+            }
         })
         .catch(error => {
             console.log('There was a problem with the fetch operation:', error.message);
         });
     }    
+
+    document.addEventListener("DOMContentLoaded", function() {
+        loadContent('/fun');
+    });   
 </script>
 
 <script>
@@ -48,4 +59,7 @@
         document.querySelector('.left-column').innerHTML = "Currently under construction.";
     }    
 </script>
+
+
+
 {% endblock %}

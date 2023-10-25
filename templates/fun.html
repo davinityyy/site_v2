@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function loadContent(url, target) {
+            $(target).load(url);
+        }
+    </script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="inner-columns">
+        <div class="inner-left">
+            <p class="classes-list">
+                <span><a href="javascript:void(0);" onclick="loadContent('{{ url_for('calculator.index') }}', '.inner-right')">Calculator</a></span>
+                <span><a href="javascript:void(0);" onclick="loadContent('{{ url_for('memory_game.index') }}', '.inner-right')">Memory Game</a></span>
+                <!-- Add more links as needed -->
+            </p>
+        </div>
+
+        <div class="inner-right">
+            <!-- This is where the game templates will be inserted -->
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
